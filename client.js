@@ -338,7 +338,7 @@
             'table th,table td{border-color:#31403D !important}',
             '[data-role="user"],[data-message-role="user"],[data-author="user"],[class*="userMessage"],[class*="user-message"],[class*="userBubble"]{border:1px solid #31403D !important}',
             // The user's own turn: accent fill, dark ink.
-            '[class*="_userStack"]{background:#C9A45A !important;color:#07100D !important;padding:2px 6px !important}',
+            '[class*="_userStack"]{background:#C9A45A !important;color:#07100D !important;padding:2px 2px !important}',
             '[class*="_userStack"] *{color:#07100D !important}',
             // The bubble layer inside the turn keeps its own grey fill for a
             // frame; clear it immediately instead of waiting for the deGrey pass.
@@ -422,6 +422,7 @@
     };
   },
 });
+
 
 
 
