@@ -303,7 +303,7 @@ window.__ModuleLoader__.load({
             'input,textarea,select,[contenteditable="true"]{color-scheme:dark !important}',
             'textarea,[contenteditable="true"]{background:transparent !important}',
             '[class*="composer"]{background:#0A1B18 !important}',
-            '[data-composer-card="true"]{border:2px solid #8CA39C !important}',
+            '[data-composer-card="true"]{border:2px solid #8CA39C !important;box-shadow:none !important}',
             'pre{border:1px solid #31403D !important;box-sizing:border-box}',
             // Table rules: match the dim header rule (#31403D), not the frame token.
             'table th,table td{border-color:#31403D !important}',
