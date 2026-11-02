@@ -158,7 +158,21 @@ window.__ModuleLoader__.load({
           bar = { el, r };
         }
       }
-      if (side && !side.el.style.borderRight) side.el.style.borderRight = '2px solid #8CA39C';
+      if (side) {
+        // Drop any native 1px divider so the drawn rule is the only seam.
+        if (side.el.style.borderRight !== 'none') side.el.style.borderRight = 'none';
+        const edge = side.el.getBoundingClientRect();
+        let line = document.getElementById('dsh-550c-seam');
+        if (!line) {
+          line = document.createElement('div');
+          line.id = 'dsh-550c-seam';
+          document.body.appendChild(line);
+        }
+        line.style.cssText =
+          'position:fixed;top:var(--dsh-windows-titlebar-height,40px);bottom:0;' +
+          'left:' + Math.round(edge.right) + 'px;width:2px;background:#8CA39C;' +
+          'z-index:2147483000;pointer-events:none';
+      }
       if (head && !head.el.style.borderBottom) head.el.style.borderBottom = '2px solid #8CA39C';
       // The caption row shares the conversation surface.
       if (bar) bar.el.style.background = '#0A1B18';
