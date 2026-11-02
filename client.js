@@ -1,4 +1,4 @@
-window.__ModuleLoader__.load({
+﻿window.__ModuleLoader__.load({
   id: '@jiangsuyuan/dsh-theme-550c',
   factory() {
     // One palette, day and night. The presenter writes theme tokens onto
@@ -274,6 +274,17 @@ window.__ModuleLoader__.load({
       }
     };
 
+    // Small icon toggles (wrap, etc.) show their state with the icon, not a fill.
+    const quietIconToggles = () => {
+      for (const el of document.querySelectorAll('[aria-pressed="true"],[data-state="on"]')) {
+        const r = el.getBoundingClientRect();
+        if (r.width > 48 || r.height > 48) continue;
+        if ((el.textContent || '').trim()) continue;
+        el.style.setProperty('background-color', 'transparent', 'important');
+        el.style.setProperty('border-color', '#31403D', 'important');
+      }
+    };
+
     // New chat keeps one frame; the logo block keeps none.
     const sidebarTrim = () => {
       // Strip every frame in the logo band first, so the button pass below wins.
@@ -374,6 +385,7 @@ window.__ModuleLoader__.load({
             composer();
             sidebarTrim();
             dimFlow();
+            quietIconToggles();
           }, 180);
         };
 
@@ -406,6 +418,7 @@ window.__ModuleLoader__.load({
     };
   },
 });
+
 
 
 
