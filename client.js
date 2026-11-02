@@ -323,7 +323,7 @@ window.__ModuleLoader__.load({
             'table th,table td{border-color:#31403D !important}',
             '[data-role="user"],[data-message-role="user"],[data-author="user"],[class*="userMessage"],[class*="user-message"],[class*="userBubble"]{border:1px solid #31403D !important}',
             // The user's own turn: accent fill, dark ink.
-            '[class*="_userStack"]{background:#C9A45A !important;color:#07100D !important;padding:8px 12px !important}',
+            '[class*="_userStack"]{background:#C9A45A !important;color:#07100D !important;padding:4px 8px !important}',
             '[class*="_userStack"] *{color:#07100D !important}',
             '[role="tab"][aria-selected="true"],[aria-selected="true"]{background:#C9A45A !important;color:#07100D !important}',
             '[role="tab"][aria-selected="true"] *,[aria-selected="true"] *{color:#07100D !important}',
