@@ -325,6 +325,9 @@ window.__ModuleLoader__.load({
             // The user's own turn: accent fill, dark ink.
             '[class*="_userStack"]{background:#C9A45A !important;color:#07100D !important;padding:4px 8px !important}',
             '[class*="_userStack"] *{color:#07100D !important}',
+            // The bubble layer inside the turn keeps its own grey fill for a
+            // frame; clear it immediately instead of waiting for the deGrey pass.
+            '[class*="_userStack"] > div{background-color:transparent !important}',
             '[role="tab"][aria-selected="true"],[aria-selected="true"]{background:#C9A45A !important;color:#07100D !important}',
             '[role="tab"][aria-selected="true"] *,[aria-selected="true"] *{color:#07100D !important}',
             '[role="tab"][aria-selected="true"]{align-self:stretch !important;display:flex !important;align-items:center !important;margin:0 -9px !important;padding:0 9px !important;border-bottom:2px solid #C9A45A !important;position:relative !important;z-index:2 !important}',
