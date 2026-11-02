@@ -1,4 +1,4 @@
-window.__ModuleLoader__.load({
+﻿window.__ModuleLoader__.load({
   id: '@jiangsuyuan/dsh-theme-550c',
   factory() {
     // One palette, day and night. The presenter writes theme tokens onto
@@ -247,6 +247,27 @@ window.__ModuleLoader__.load({
       for (const svg of send.querySelectorAll('svg')) svg.style.color = '#07100D';
     };
 
+    // Frames inside the transcript follow the dim table rule, not the bright frame token.
+    const dimFlow = () => {
+      for (const el of document.querySelectorAll('body *')) {
+        const r = el.getBoundingClientRect();
+        if (r.width < 80 || r.height < 24) continue;
+        if (r.left < 330 || r.top < 110) continue;
+        if (r.top > window.innerHeight - 220) continue;
+        if (el.querySelector('textarea, [contenteditable="true"]')) continue;
+        if (el.tagName === 'BUTTON' || el.tagName === 'svg') continue;
+        const cs = getComputedStyle(el);
+        const widths = [
+          parseFloat(cs.borderTopWidth),
+          parseFloat(cs.borderRightWidth),
+          parseFloat(cs.borderBottomWidth),
+          parseFloat(cs.borderLeftWidth),
+        ];
+        if (!widths.some((v) => v > 0)) continue;
+        el.style.border = '1px solid #31403D';
+      }
+    };
+
     // New chat keeps one frame; the logo block keeps none.
     const sidebarTrim = () => {
       // Strip every frame in the logo band first, so the button pass below wins.
@@ -290,10 +311,10 @@ window.__ModuleLoader__.load({
             'input,textarea,select,[contenteditable="true"]{color-scheme:dark !important}',
             'textarea,[contenteditable="true"]{background:transparent !important}',
             '[class*="composer"]{background:#0A1B18 !important}',
-            'pre{border:2px solid #8CA39C !important;box-sizing:border-box}',
+            'pre{border:1px solid #31403D !important;box-sizing:border-box}',
             // Table rules: match the dim header rule (#31403D), not the frame token.
             'table th,table td{border-color:#31403D !important}',
-            '[data-role="user"],[data-message-role="user"],[data-author="user"],[class*="userMessage"],[class*="user-message"],[class*="userBubble"]{border:2px solid #8CA39C !important}',
+            '[data-role="user"],[data-message-role="user"],[data-author="user"],[class*="userMessage"],[class*="user-message"],[class*="userBubble"]{border:1px solid #31403D !important}',
             '[role="tab"][aria-selected="true"],[aria-selected="true"]{background:#C9A45A !important;color:#07100D !important}',
             '[role="tab"][aria-selected="true"] *,[aria-selected="true"] *{color:#07100D !important}',
             '[role="tab"][aria-selected="true"]{align-self:stretch !important;display:flex !important;align-items:center !important;margin:0 -9px !important;padding:0 9px !important;border-bottom:2px solid #C9A45A !important;position:relative !important;z-index:2 !important}',
@@ -339,6 +360,7 @@ window.__ModuleLoader__.load({
             deGrey();
             composer();
             sidebarTrim();
+            dimFlow();
           }, 180);
         };
 
@@ -371,6 +393,7 @@ window.__ModuleLoader__.load({
     };
   },
 });
+
 
 
 
