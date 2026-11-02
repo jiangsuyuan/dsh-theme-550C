@@ -1,9 +1,17 @@
 {
-  "name": "@local/dsh-theme-550c",
+  "name": "@jiangsuyuan/dsh-theme-550c",
   "version": "1.0.0",
-  "private": true,
+  "description": "550C: Wandering Earth control-room palette and frames for the DSH Web UI.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jiangsuyuan/dsh-theme-550C.git"
+  },
+  "homepage": "https://github.com/jiangsuyuan/dsh-theme-550C",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
-  "description": "550C — a Wandering Earth control-room theme for DeepSeek Harness.",
   "exports": {
     ".": "./index.js",
     "./client": "./client.js",
@@ -15,7 +23,9 @@
     "client.js",
     "cordis.patch.yml",
     "locale/*.json",
-    "icon.svg"
+    "icon.svg",
+    "screenshots.json",
+    "docs/preview.png"
   ],
   "dsh": {
     "bundle": { "patch": "./cordis.patch.yml" },

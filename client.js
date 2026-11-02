@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/dsh-theme-550c',
+  id: '@jiangsuyuan/dsh-theme-550c',
   factory() {
     // One palette, day and night. The presenter writes theme tokens onto
     // document.body, so a skin layer re-applies its values there.

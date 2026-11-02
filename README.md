@@ -24,11 +24,28 @@
 
 ## 安装
 
+从 GitHub 直接安装：
+
 ```bash
-dsh plugin install-bundle <path-to-this-directory>
+dsh plugin add https://github.com/jiangsuyuan/dsh-theme-550C
 ```
 
-或者在 DSH 的插件管理里以本地目录安装。安装后立即生效（常驻皮肤，无需在设置里选择主题）。
+从 GitHub Packages 安装（需要带 `read:packages` 的 GitHub token，即使是公开包也要鉴权）：
+
+```bash
+npm config set @jiangsuyuan:registry https://npm.pkg.github.com
+npm install @jiangsuyuan/dsh-theme-550c
+```
+
+也可以在 DSH 的插件管理里以本地目录安装 `dsh plugin install-bundle <path>`。安装后立即生效（常驻皮肤，无需在设置里选择主题）。
+
+## 发布
+
+```bash
+npm publish --registry=https://npm.pkg.github.com
+```
+
+需先登录该 registry（`npm login --registry=https://npm.pkg.github.com --scope=@jiangsuyuan`），token 需具备 `write:packages`。
 
 ## 结构
 
