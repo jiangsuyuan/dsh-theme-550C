@@ -291,6 +291,8 @@ window.__ModuleLoader__.load({
             'textarea,[contenteditable="true"]{background:transparent !important}',
             '[class*="composer"]{background:#0A1B18 !important}',
             'pre{border:2px solid #8CA39C !important;box-sizing:border-box}',
+            // Table rules: match the dim header rule (#31403D), not the frame token.
+            'table th,table td{border-color:#31403D !important}',
             '[data-role="user"],[data-message-role="user"],[data-author="user"],[class*="userMessage"],[class*="user-message"],[class*="userBubble"]{border:2px solid #8CA39C !important}',
             '[role="tab"][aria-selected="true"],[aria-selected="true"]{background:#C9A45A !important;color:#07100D !important}',
             '[role="tab"][aria-selected="true"] *,[aria-selected="true"] *{color:#07100D !important}',
