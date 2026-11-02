@@ -1,4 +1,4 @@
-﻿window.__ModuleLoader__.load({
+window.__ModuleLoader__.load({
   id: '@jiangsuyuan/dsh-theme-550c',
   factory() {
     // One palette, day and night. The presenter writes theme tokens onto
@@ -210,14 +210,6 @@
       }
       if (!box) return;
       box.style.background = '#0A1B18';
-      // The input box carries the same 2px frame as every other surface.
-      let bordered = field.parentElement;
-      for (let i = 0; i < 7 && bordered; i += 1, bordered = bordered.parentElement) {
-        if (parseFloat(getComputedStyle(bordered).borderTopWidth) > 0) {
-          bordered.style.border = '2px solid #8CA39C';
-          break;
-        }
-      }
       for (const inner of box.querySelectorAll('*')) {
         const ir = inner.getBoundingClientRect();
         if (ir.width < 300 || ir.height < 24) continue;
@@ -311,6 +303,7 @@
             'input,textarea,select,[contenteditable="true"]{color-scheme:dark !important}',
             'textarea,[contenteditable="true"]{background:transparent !important}',
             '[class*="composer"]{background:#0A1B18 !important}',
+            '[class*="composerStack"] [class*="_card"]{border:2px solid #8CA39C !important}',
             'pre{border:1px solid #31403D !important;box-sizing:border-box}',
             // Table rules: match the dim header rule (#31403D), not the frame token.
             'table th,table td{border-color:#31403D !important}',
@@ -393,6 +386,7 @@
     };
   },
 });
+
 
 
 
